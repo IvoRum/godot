@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwm6gapmofkeg"]
+
+[ext_resource type="Script" uid="uid://b7hn5mvmrm1hj" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dkenu7qhchskq" path="res://signals_excample.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dyx6wckdqaxuj" path="res://get_set.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://cjeplbw0jw45a" path="res://classes.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dypx2iwen85we" path="res://character.gd" id="5_lquwl"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -151.0
+offset_right = 375.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 76
+text = "This is a lebel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignalsExcample" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+
+[node name="Timer" type="Timer" parent="SignalsExcample"]
+autostart = true
+
+[node name="GetSet" type="Node" parent="."]
+script = ExtResource("3_h2yge")
+
+[node name="Classes" type="Node" parent="." node_paths=PackedStringArray("character_to_kill")]
+script = ExtResource("4_1bvp3")
+character_to_kill = NodePath("Character3")
+
+[node name="Character" type="Node" parent="Classes"]
+script = ExtResource("5_lquwl")
+profetion = "Postion seller"
+health = 40
+
+[node name="Character3" type="Node" parent="Classes"]
+script = ExtResource("5_lquwl")
+profetion = "Knight"
+health = 150
+
+[node name="Character2" type="Node" parent="Classes"]
+script = ExtResource("5_lquwl")
+profetion = "Ex-Adventurere"
+health = 30
+
+[connection signal="leveled_up" from="SignalsExcample" to="SignalsExcample" method="_on_leveled_up"]
+[connection signal="timeout" from="SignalsExcample/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SignalsExcample/Timer" to="SignalsExcample" method="_on_timer_timeout"]
+[connection signal="health_changed" from="GetSet" to="GetSet" method="_on_health_changed"]
