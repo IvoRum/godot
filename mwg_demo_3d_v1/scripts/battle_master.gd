@@ -1,0 +1,13 @@
+class_name BattleMaster
+extends Node
+
+@export var playerCharicters : PlayerCharacter
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	playerCharicters.position
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0qj6u5nhllek"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(10, 0.2, 10)
+
+[node name="ProtoController" parent="CSGBox3D" instance=ExtResource("1_ig7tw")]
