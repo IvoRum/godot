@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Creating patters.md",
+                "file": "Routing battles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Creating patters"
+              "title": "Routing battles"
             }
           }
         ],
@@ -213,8 +213,8 @@
   },
   "active": "845a8472ed2ff385",
   "lastOpenFiles": [
-    "Routing battles.md",
     "Creating patters.md",
+    "Routing battles.md",
     "Atomic notes/Input.md",
     "games/City maker",
     "games",

@@ -1,11 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0qj6u5nhllek"]
+[gd_scene load_steps=7 format=3 uid="uid://c0qj6u5nhllek"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b1s1elf7ce56x" path="res://scripts/main.gd" id="1_h2yge"]
+[ext_resource type="MeshLibrary" uid="uid://cvfvtlduob3pu" path="res://meshlibrary/mesh_map_test_v3.tres" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bg8ilkmgdsjl4" path="res://scripts/battle_camera.gd" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
 use_collision = true
 size = Vector3(10, 0.2, 10)
 
-[node name="ProtoController" parent="CSGBox3D" instance=ExtResource("1_ig7tw")]
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_h2yge")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65540, 3, 1, 65540, 1, 1, 65541, 1, 1, 65540, 2, 1, 65553, 16, 1, 65554, 16, 1, 65554, 15, 1, 131062, 20, 1, 131048, 65529, 1, -393201, 10, 1, 1179652, 65525, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 18, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -6.69697e-08, 5.61943e-08, 0, 0.642788, 0.766044, -8.74228e-08, 0.766044, -0.642788, 0, 0, 0)
+script = ExtResource("3_h2yge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 354.0
+offset_bottom = 649.0
+
+[node name="sideLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Side"
+
+[node name="sideSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="tilt" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Tilt"
+
+[node name="tiltSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="rotate" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rotate"
+
+[node name="rotateSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0

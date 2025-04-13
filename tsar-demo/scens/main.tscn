@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdypk1tqx4pgc"]
+
+[ext_resource type="Script" uid="uid://obw847a6honh" path="res://scripts/word_master.gd" id="1_gotbl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gotbl"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gfg0w"]
+sky_material = SubResource("ProceduralSkyMaterial_gotbl")
+
+[sub_resource type="Environment" id="Environment_stwvi"]
+background_mode = 2
+sky = SubResource("Sky_gfg0w")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="main" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_stwvi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0784591, -0.231033, 0.969777, 0, 0.972776, 0.231748, -0.996917, -0.0181827, 0.0763231, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.964557, 0.263873, 0, -0.263873, 0.964557, 0.796, 5.596, 2)
+size = 11.476
+
+[node name="WordMaster" type="Node" parent="."]
+script = ExtResource("1_gotbl")
+metadata/_custom_type_script = "uid://obw847a6honh"

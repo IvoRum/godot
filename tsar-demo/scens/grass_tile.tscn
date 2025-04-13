@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxmwipienu2k4"]
+
+[ext_resource type="Script" uid="uid://dslbr2qf3k2af" path="res://scripts/grass_tile.gd" id="1_rjrgl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjrgl"]
+diffuse_mode = 3
+albedo_color = Color(0.780392, 1, 0.517647, 1)
+
+[node name="GrassTile" type="Node3D"]
+script = ExtResource("1_rjrgl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_rjrgl")

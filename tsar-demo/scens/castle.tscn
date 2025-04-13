@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcaif27rsdce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohwvp"]
+diffuse_mode = 3
+albedo_color = Color(0.286, 0.2772, 0.33, 1)
+
+[node name="castle" type="Node3D"]
+
+[node name="building" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ohwvp")
+
+[node name="flore" type="CSGBox3D" parent="building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451416, 0)
+size = Vector3(1, 0.097168, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.263216, -0.246243, 0.351234)
+radius = 0.0463867
+height = 0.302002
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276636, -0.246243, 0.351234)
+radius = 0.0463867
+height = 0.302002
+
+[node name="CSGBox3D" type="CSGBox3D" parent="building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0239868, -0.26593, -0.0309061)
+size = Vector3(0.716675, 0.279175, 0.56781)

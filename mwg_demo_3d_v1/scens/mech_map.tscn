@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b445iu8k5fyve"]
+
+[ext_resource type="PackedScene" uid="uid://buw7h36h4ybkr" path="res://gridmaps/mech_map.glb" id="1_0i64d"]
+
+[node name="mech_map" instance=ExtResource("1_0i64d")]
